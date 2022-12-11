@@ -37,11 +37,10 @@ scr.onkey(snake.left, "Left")
 scr.onkey(snake.right, "Right")
 
 game_is_on = True
+speed = 10
 while game_is_on:
     scr.update()
-    speed = 0.1
-    # if scoreboard.score % 5 == 0:
-    time.sleep(speed)
+    time.sleep(1/speed)
 
     snake.move()
 
@@ -50,6 +49,7 @@ while game_is_on:
         food.refresh()
         snake.extend()
         scoreboard.increase_score()
+        speed += 1
 
     # Detect collision with wall
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 270 or snake.head.ycor() < -300:
