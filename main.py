@@ -17,15 +17,11 @@ def createWall():
     wall.color("red")
     wall.hideturtle()
     wall.penup()
-    wall.goto(-290, 275)
+    wall.goto(-295, 270)
     wall.pendown()
-    wall.forward(580)
-    wall.right(90)
-    wall.forward(590)
-    wall.right(90)
-    wall.forward(580)
-    wall.right(90)
-    wall.forward(590)
+    for _ in range(4):
+        wall.forward(585)
+        wall.right(90)
 
 createWall()
 
