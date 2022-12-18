@@ -8,7 +8,7 @@ import time
 scr = Screen()
 scr.setup(600, 650)
 scr.bgcolor("black")
-scr.title("My Snak Game")
+scr.title("My Snake Game")
 scr.tracer(0)
 
 def createWall():
@@ -53,14 +53,15 @@ while game_is_on:
 
     # Detect collision with wall
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 270 or snake.head.ycor() < -300:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
+        speed = 10
 
     # Detect collison with tail
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
-
+            scoreboard.reset()
+            snake.reset()
+            speed = 10
 
 scr.exitonclick()
